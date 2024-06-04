@@ -1,0 +1,51 @@
+nav{
+    background-color: rgb(80 142 255);
+}
+.btn-outline-success {
+    --bs-btn-color: 1b 5b 89;
+    --bs-btn-border-color: #1b5b89;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #1b5b89;
+    --bs-btn-hover-border-color: #1b5b89;
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: 1b 5b 89;
+    -bs-btn-active-border-color: #1b5b89;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #1b5b89;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #1b5b89;
+    --bs-gradient: none;
+}
+.card{
+    border-radius: 20px;
+    margin: 20px;
+    margin-bottom: 100px;
+}
+.card-body{
+    border-radius: 20px;
+}
+.image1{
+    
+    background-image:url("../Photos/fantasy-2543658_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.image2{
+    
+    background-image:url("../Photos/palms-5276519_1280.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.image3{
+    
+    background-image:url("../Photos/wind-turbine-5163993_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.image4{
+    
+    background-image:url("../Photos/landscape-1844226_1280.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
