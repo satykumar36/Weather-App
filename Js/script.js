@@ -1,52 +1,49 @@
-
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '348a21a1ffmsh95fc7dc87445ef0p1e3aabjsnea2f64e0360d',
-        'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        'x-rapidapi-key': '533caf8167mshb1ae7f104c0dc3ap1d2a3fjsn628f2ca780f5',
+        'x-rapidapi-host': 'yahoo-weather5.p.rapidapi.com'
     }
 };
 
 function getWeather(city) {
-    cityName.innerHTML=city
+    cityName.innerHTML = city;
 
-fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city='+city, options)
-    .then(response => response.json())
-    .then((response) => {
-        console.log(response)
+    fetch('https://yahoo-weather5.p.rapidapi.com/weather?location=' + city + '&format=json&u=c', options)
+        .then(response => response.json())
+        .then((response) => {
+            console.log(response);
 
-        cloud_pct.innerHTML = response.cloud_pct
-        temp.innerHTML = response.temp
-        temp2.innerHTML = response.temp
-        temp3.innerHTML = response.temp
+            const current = response.current_observation;
+            const forecasts = response.forecasts[0];
 
+            // Update HTML elements with weather data
+            temp.innerHTML = current.condition.temperature;
+            temp2.innerHTML = current.condition.temperature;
+            temp3.innerHTML = current.condition.temperature;
 
-        feels_like.innerHTML = response.feels_like
-        humidity.innerHTML = response.humidity
-        humidity2.innerHTML = response.humidity
-        humidity3.innerHTML = response.humidity
+            feels_like.innerHTML = current.wind.chill;
+            humidity.innerHTML = current.atmosphere.humidity;
+            humidity2.innerHTML = current.atmosphere.humidity;
+            humidity3.innerHTML = current.atmosphere.humidity;
 
+            min_temp.innerHTML = forecasts.low;
+            max_temp.innerHTML = forecasts.high;
+            wind_speed.innerHTML = current.wind.speed;
+            wind_speed2.innerHTML = current.wind.speed;
+            wind_speed3.innerHTML = current.wind.speed;
 
-        min_temp.innerHTML = response.min_temp
-        max_temp.innerHTML = response.max_temp
-        wind_speed.innerHTML = response.wind_speed
-        wind_speed2.innerHTML = response.wind_speed
-        wind_speed3.innerHTML = response.wind_speed
+            sunrise.innerHTML = response.astronomy.sunrise;
+            sunrise2.innerHTML = response.astronomy.sunrise;
 
-
-            sunrise.innerHTML = response.sunrise
-            sunrise2.innerHTML = response.sunrise
-
-        sunset.innerHTML = response.sunset
-
-
-    })
-
-    .catch(err => console.error(err));
+            sunset.innerHTML = response.astronomy.sunset;
+        })
+        .catch(err => console.error(err));
 }
-submit.addEventListener("click",(e)=>{
-    e.preventDefault()
 
-    getWeather(city.value)
-})
-getWeather("Delhi")
+submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    getWeather(city.value);
+});
+
+getWeather("Delhi");
